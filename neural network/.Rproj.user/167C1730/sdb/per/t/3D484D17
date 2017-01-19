@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "library(nnet)\n\nload(\"D:/R_projects/Final_Lab/train_clean.RData\");\nload(\"D:/R_projects/Final_Lab/test_clean.RData\");\n\n## Make vectors because neuralnet is weird\nsex <- train$sex\npclass <- train$pclass\nfare <- train$fare\nage <- train$age\nsurvived <- train$survived\n\nvectors <- cbind(sex, pclass, fare, age, family, survived)\nvectors <- as.data.frame(vectors)\nvectors$sex <- factor(vectors$sex)\nvectors$pclass <- factor(vectors$pclass)\nvectors$family <- factor(vectors$family)\nvectors$survived <- factor(vectors$survived)\n\nsex.test <- test$sex\npclass.test <- test$pclass\nfare.test <- test$fare\nage.test <- test$age\n#survived.test <- test$survived\n\nvectors.test <- cbind(sex.test, pclass.test, fare.test, age.test)\nvectors.test <- as.data.frame(vectors.test)\ncolnames(vectors.test) <- c(\"sex\", \"pclass\", \"fare\", \"age\")\n\nvectors.test$sex.test <- factor(vectors.test$sex)\nvectors.test$pclass.test <- factor(vectors.test$pclass)\n\nnet3 <- nnet(survived ~ sex + pclass + fare + age + family, data = train, size = 7,\n             linout = FALSE, maxit = 10000)\nmodel <- \"nnet(survived ~ sex + pclass + fare + age, data = train, size = 2, linout = FALSE, maxit = 10000)\"\n\nfitted.results <- predict(net3, test, type = \"class\")\nfitted.results <- ifelse(fitted.results > 0.5, 1,0)\n\nerror <- mean(fitted.results != test$survived)\n\nprint(1-error)\n\nlibrary(devtools)\nsource_url('https://gist.githubusercontent.com/fawda123/7471137/raw/466c1474d0a505ff044412703516c34f1a4684a5/nnet_plot_update.r')\n\n#plot each model\nplot.nnet(net3)\n",
+    "created" : 1484690821165.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2762159385",
+    "id" : "3D484D17",
+    "lastKnownWriteTime" : 1484821534,
+    "last_content_update" : 1484821534497,
+    "path" : "D:/R_projects/Final_Lab/neural.R",
+    "project_path" : "neural.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
