@@ -5,9 +5,9 @@ https://www.kaggle.com/c/titanic<br />
 
 | Person | Role description                    |
 | ------------- | ------------------------------ |
-| Tsvetkova Alexandra 	| 	Prepared this file and analytics presentation |
+| Tsvetkova Alexandra 	| 	Prepared this file and analytics presentation, brougth everything together |
 | Makarenko Dmitriy 	  |	  Prepared a solution based on a neural network |
 | Lyan Artem 		        |	  Prepared a solution based on logistics regression method |
 | Ivanushenko Alexandr	|	  Prepared a solution based on decision trees |
-| Fedotov Ivan		      |	  Prepared business presentation |
+| Fedotov Ivan		      |	  Prepared business presentation and an analytics report |
 * https://github.com/sash-tsvet/BigDataFinalLab/
